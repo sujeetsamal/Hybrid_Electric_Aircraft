@@ -27,7 +27,7 @@ The system models thrust generation, aerodynamic drag feedback, and dynamic velo
 
 ### Hybrid Propulsion Layout
 
-<p align="center">
+<p align="left">
   <img src="01_System_Definition/Hybrid_Architecture_Block_Diagram.png" width="700">
 </p>
 
