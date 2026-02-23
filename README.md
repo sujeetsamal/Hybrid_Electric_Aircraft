@@ -44,7 +44,7 @@ The architecture integrates:
 
 ### Velocity Response
 
-<p align="right">
+<p align="left">
   <img src="01_System_Definition/speedgraph" width="700">
 </p>
 
