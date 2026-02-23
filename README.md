@@ -5,112 +5,153 @@
 ![Fusion360](https://img.shields.io/badge/CAD-Fusion360-red)
 ![Status](https://img.shields.io/badge/Project-Active-success)
 
-A system-level hybrid-electric aircraft modeling project integrating propulsion simulation, nonlinear flight dynamics, CAD modeling, and structural validation.
+---
+
+## Abstract
+
+This project presents a system-level modeling framework for a parallel hybrid-electric aircraft integrating propulsion, aerodynamics, flight dynamics, and structural validation. A nonlinear thrust model with aerodynamic drag feedback is implemented in Simulink to simulate longitudinal flight behavior. The propulsion architecture blends internal combustion engine power with electric motor assist to analyze hybrid performance and cruise equilibrium characteristics.
 
 ---
 
-# Hybrid_Electric_Aircraft
-Hybrid Electric Aircraft Concept is a system-level aerospace project modeling a parallel hybrid propulsion aircraft. It integrates MATLAB power analysis, Simulink nonlinear flight dynamics, Fusion 360 CAD design, and structural validation. The model includes thrust–drag equilibrium and hybrid power blending to simulate realistic cruise performance.
+## I. Introduction
 
-
-## 📌 Project Overview
-
-This project presents a simplified longitudinal flight model of a hybrid-electric aircraft including:
-
-- Hybrid propulsion architecture (IC engine + electric motor)
-- Power blending strategy
-- Nonlinear propeller thrust model
-- Aerodynamic drag modeling
-- Aircraft longitudinal dynamics simulation
-- Structural verification of critical components
-- CAD conceptual aircraft design
-
-The objective is to demonstrate system-level integration of hybrid propulsion with aircraft dynamics.
+Hybrid-electric propulsion is a promising approach for reducing fuel consumption and emissions in next-generation aircraft. This project develops a simplified longitudinal flight dynamics model incorporating propulsion power blending and aerodynamic drag feedback to evaluate steady-state cruise performance.
 
 ---
 
-# 🧠 System Architecture
+## II. System Architecture
 
-## Hybrid Propulsion Block Diagram
+The hybrid propulsion configuration consists of:
+
+- Internal Combustion Engine  
+- Electric Motor Assist  
+- Shared Shaft Power Transmission  
+- Propeller-Based Thrust Generation  
+- Aerodynamic Drag Model  
+- Longitudinal Dynamic Feedback Loop  
 
 <p align="center">
   <img src="docs/images/hybrid_architecture.png" width="700">
 </p>
 
-The hybrid propulsion system integrates:
-
-- Internal Combustion Engine  
-- Electric Motor Assist  
-- Shared Shaft Power System  
-- Propeller Thrust Conversion  
-- Aerodynamic Drag Model  
-- Longitudinal Flight Dynamics  
-
 ---
 
-# 🔬 Governing Equations
+## III. Mathematical Modeling
 
-### Thrust Model
+### A. Thrust Model
 
-\[
+The propeller thrust is modeled using a power-based nonlinear relationship:
+
+$$
 T = \frac{P}{V + \varepsilon}
-\]
+\tag{1}
+$$
 
-### Aerodynamic Drag
+where:
 
-\[
-D = \frac{1}{2} \rho S C_d V^2
-\]
-
-### Longitudinal Dynamics
-
-\[
-a = \frac{T - D}{m}
-\]
-
-Where:
-
-- \(P\) = Shaft Power  
-- \(V\) = Aircraft Velocity  
-- \(ρ\) = Air Density  
-- \(S\) = Wing Area  
-- \(C_d\) = Drag Coefficient  
-- \(m\) = Aircraft Mass  
+- $T$ = Thrust (N)  
+- $P$ = Shaft Power (W)  
+- $V$ = Aircraft Velocity (m/s)  
+- $\varepsilon$ = Small constant to prevent singularity  
 
 ---
 
-# 📈 Simulation Results
+### B. Aerodynamic Drag Model
 
-## Velocity Response (With Drag Model)
+Aerodynamic drag is modeled using the quadratic drag equation:
+
+$$
+D = \frac{1}{2} \rho S C_d V^2
+\tag{2}
+$$
+
+where:
+
+- $\rho$ = Air Density (kg/m³)  
+- $S$ = Wing Reference Area (m²)  
+- $C_d$ = Drag Coefficient  
+- $V$ = Velocity (m/s)  
+
+---
+
+### C. Longitudinal Dynamics
+
+Applying Newton’s Second Law:
+
+$$
+a = \frac{T - D}{m}
+\tag{3}
+$$
+
+where:
+
+- $a$ = Acceleration (m/s²)  
+- $m$ = Aircraft Mass (kg)  
+
+Velocity is obtained via time integration:
+
+$$
+V(t) = \int a(t)\, dt
+\tag{4}
+$$
+
+---
+
+## IV. Simulation Implementation
+
+The system is implemented using:
+
+- MATLAB for mission and power modeling  
+- Simulink for nonlinear dynamic simulation  
+- Fusion 360 for CAD modeling  
+- Static stress analysis for structural validation  
+
+Simulation duration: **1800 seconds**
+
+---
+
+## V. Results
+
+### Velocity Response
 
 <p align="center">
   <img src="docs/images/velocity_response.png" width="700">
 </p>
 
-✔ Initial acceleration  
-✔ Transient overshoot  
-✔ Drag stabilization  
-✔ Steady cruise equilibrium  
+The simulation demonstrates:
 
-The simulation demonstrates thrust-drag equilibrium and nonlinear dynamic response.
+- Initial transient acceleration  
+- Drag-induced deceleration  
+- Nonlinear thrust reduction  
+- Steady-state cruise equilibrium  
+
+At equilibrium:
+
+$$
+T = D
+\tag{5}
+$$
+
+resulting in zero acceleration and constant cruise velocity.
 
 ---
 
-# 🛠 Structural Analysis
+## VI. Structural Validation
 
-## Motor Mount Stress
+Finite stress analysis was performed on:
+
+- Hybrid motor mount  
+- Wing root section  
 
 <p align="center">
   <img src="docs/images/motor_mount_stress.png" width="600">
 </p>
 
-## Wing Root Stress
-
 <p align="center">
   <img src="docs/images/wing_root_stress.png" width="600">
 </p>
 
-Full structural report available in:
+Detailed report available in:
 
 ```
 05_Structural_Check/stress_report.pdf
@@ -118,126 +159,44 @@ Full structural report available in:
 
 ---
 
-# 📂 Project Structure
+## VII. Project Structure
 
 ```
 Hybrid_Electric_Aircraft_Concept/
-│
 ├── 01_System_Definition/
-│   ├── Project_Objective.pdf
-│   ├── Hybrid_Architecture_Block_Diagram.png
-│   └── Mission_Profile.png
-│
 ├── 02_MATLAB_Model/
-│   ├── parameters.m
-│   ├── mission_simulation.m
-│   ├── efficiency_analysis.m
-│   └── results_plots.fig
-│
 ├── 03_Simulink_Model/
-│   ├── hybrid_aircraft.slx
-│   ├── Power_System_Subsystem.slx
-│   ├── Aircraft_Dynamics_Subsystem.slx
-│   └── Controller_Subsystem.slx
-│
 ├── 04_CAD_Model_Fusion360/
-│   ├── aircraft_body.f3d
-│   ├── hybrid_engine_mount.f3d
-│   ├── battery_pack_layout.f3d
-│   └── propeller_assembly.f3d
-│
 ├── 05_Structural_Check/
-│   ├── motor_mount_stress.png
-│   ├── wing_root_stress.png
-│   └── stress_report.pdf
-│
 └── docs/images/
 ```
 
 ---
 
-# 🔬 MATLAB Model
+## VIII. Conclusion
 
-The MATLAB simulation performs:
-
-- Power distribution modeling  
-- Mission energy estimation  
-- Efficiency analysis  
-- Results visualization  
-
-### To Run:
-
-```matlab
-run('parameters.m')
-run('mission_simulation.m')
-```
+The developed hybrid-electric aircraft model successfully integrates propulsion blending, nonlinear thrust computation, aerodynamic drag, and longitudinal dynamics. The simulation achieves realistic cruise equilibrium and demonstrates system-level interaction between propulsion and aerodynamics. Structural verification confirms feasibility of critical load-bearing components.
 
 ---
 
-# 🔧 Simulink Model
+## IX. Future Work
 
-The Simulink implementation includes:
-
-- Controller Subsystem  
-- Power System Subsystem  
-- Aircraft Dynamics Subsystem  
-
-Simulation Time: **1800 seconds**
-
-Outputs:
-- Velocity response  
-- Thrust vs Drag equilibrium  
-- Hybrid power blending behavior  
-
-To run:
-
-Open:
-
-```
-03_Simulink_Model/hybrid_aircraft.slx
-```
-
----
-
-# 🛠 CAD Design
-
-Designed using Fusion 360:
-
-- Aircraft fuselage concept  
-- Hybrid engine mount  
-- Battery pack layout  
-- Propeller assembly  
-
----
-
-# 🚀 Key Results
-
-- Realistic cruise equilibrium achieved  
-- Hybrid power blending validated  
-- Nonlinear thrust feedback implemented  
-- Aerodynamic drag stabilization observed  
-- Structural feasibility verified  
-
----
-
-# 📈 Future Improvements
-
-- Altitude-dependent air density model  
-- Battery state-of-charge tracking  
+- Altitude-dependent air density modeling  
+- Battery state-of-charge integration  
 - Climb and descent dynamics  
-- Thermal modeling  
-- Hybrid power split optimization  
+- Thermal analysis  
+- Hybrid power optimization strategy  
 
 ---
 
-# 👨‍💻 Author
+## Author
 
 **Sujeet Samal**  
 Aerospace Engineering  
-Hybrid Propulsion & Aircraft Systems
+Hybrid Propulsion & Aircraft Systems  
 
 ---
 
-# 📄 License
+## License
 
-This project is for educational and research demonstration purposes.
+Educational and research demonstration project.
