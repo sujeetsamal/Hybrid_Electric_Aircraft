@@ -45,7 +45,7 @@ The architecture integrates:
 ### Velocity Response
 
 <p align="right">
-  <img src="docs/images/velocity_response.png" width="700">
+  <img src="01_System_Definition/SPeed" width="700">
 </p>
 <p align="center">
   <img src="docs/images/velocity_response.png" width="700">
