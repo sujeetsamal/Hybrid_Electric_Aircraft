@@ -9,7 +9,7 @@ A system-level hybrid-electric aircraft modeling project integrating propulsion 
 
 ---
 
-## 🚀 Project Summary
+## Project Summary
 
 This project demonstrates a simplified longitudinal flight simulation of a parallel hybrid-electric aircraft.  
 
@@ -23,7 +23,7 @@ The system models thrust generation, aerodynamic drag feedback, and dynamic velo
 
 ---
 
-## 🧠 System Architecture
+## System Architecture
 
 ### Hybrid Propulsion Layout
 
@@ -56,7 +56,7 @@ The simulation demonstrates:
 ✔ Drag-induced stabilization  
 ✔ Steady cruise equilibrium  
 
-The system naturally reaches thrust–drag balance, resulting in stable cruise speed.
+The system naturally reaches thrust–drag balance, resulting in a stable cruise speed.
 
 ---
 
@@ -84,7 +84,7 @@ Full report available in:
 
 ---
 
-## 🔬 MATLAB Model
+## MATLAB Model
 
 The MATLAB framework performs:
 
@@ -102,7 +102,7 @@ run('mission_simulation.m')
 
 ---
 
-## 🔧 Simulink Model
+## Simulink Model
 
 The dynamic simulation includes:
 
@@ -126,7 +126,7 @@ To run:
 
 ---
 
-## 🛠 CAD Design (Fusion 360)
+## CAD Design (Fusion 360)
 
 Designed components include:
 
@@ -137,7 +137,7 @@ Designed components include:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Hybrid_Electric_Aircraft_Concept/
@@ -151,7 +151,7 @@ Hybrid_Electric_Aircraft_Concept/
 
 ---
 
-## 🎯 Key Achievements
+## Key Achievements
 
 - Realistic cruise equilibrium achieved  
 - Nonlinear thrust feedback implemented  
@@ -161,7 +161,7 @@ Hybrid_Electric_Aircraft_Concept/
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - Altitude-dependent air density model  
 - Battery state-of-charge simulation  
@@ -171,7 +171,7 @@ Hybrid_Electric_Aircraft_Concept/
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Sujeet Samal & Anisha Sheikh**  
 Aerospace Engineering  
