@@ -173,7 +173,7 @@ Hybrid_Electric_Aircraft_Concept/
 
 ## 👨‍💻 Author
 
-**Sujeet Samal & Anisha sheikh**  
+**Sujeet Samal & Anisha Sheikh**  
 Aerospace Engineering  
 Hybrid Propulsion & Aircraft Systems  
 
