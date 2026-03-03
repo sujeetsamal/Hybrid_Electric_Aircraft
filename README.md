@@ -65,7 +65,7 @@ The system naturally reaches thrust–drag balance, resulting in a stable cruise
 ### Motor Mount Stress
 
 <p align="center">
-  <img src="docs/images/motor_mount_stress.png" width="600">
+  <img src="images/mount.png" width="600">
 </p>
 
 ### Wing Root Stress
